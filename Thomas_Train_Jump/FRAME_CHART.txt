@@ -1,0 +1,24 @@
+Shot | Num. |  Frame  |               |                |                                  |     Shot     |            Render            |
+Num. |Frames|  Range  |  Camera       | Scene Name     | Description                      |    Status    |            Status            |
+----------------------------------------------------------------------------------------------------------------------------------------
+  1  |   30 | 001-030 |  rendercam    | Bedroom Scene | Barricade lowers over cam         |   Finished   | Needs Re-Render
+  2  |   24 | 031-054 |  rendercam    | Bedroom Scene | Bar bounces                       |   Finished   | Finished
+  3a |   95 | 001-095 |  rendercam    | GEARS Scene   | Gears turning (close up)          |   Finished   | Finished
+  3b |   49 | 096-144 |  rendercam    | GEARS Scene   | Gears turning (pulled back)       |   Finished   | Finished
+  4  |   72 | 055-126 |  rendercam    | Bedroom Scene | Under bridge shot                 |   Finished   | Finished
+  5  |   25 | 127-151 |  rendercam    | Bedroom Scene | Far shot of bridge                |   Finished   | Needs Re-Render (reuse DoF from shot 14)
+  6  |   38 | 152-189 |  rendercam    | Bedroom Scene | Behind trains shot                |   Finished   | Needs Re-Render
+  7  |   63 | 190-252 |  rendercam    | Bedroom Scene | "You don't like it?"              |   Finished   | Needs Re-Render
+  8  |  133 | 253-386 |  rendercam    | Bedroom Scene | "I don't like it"                 |   Finished   | Missing Frames
+  9  |   25 | 387-411 |  rendercam    | Bedroom Scene | Thomas Pulls Out (low shot)       |   Finished   | Finished
+  10 |   24 | 412-435 |  rendercam    | Bedroom Scene | Thomas Pulls Out (pulled back)    |   Finished   | Missing 4 Frames
+  11 |      |         |               | GEARS Scene   | Gears turning (closer/fast)       |              |
+  12 |   18 | 436-453 | rendercam     | Bedroom Scene | Under Bridge shot 2               |   Finished   | Needs Render
+  13 |   18 | 436-453 | thomas_wheels | Bedroom Scene | thomas wheels shot                |   Finished   | Needs Render
+  14 |   18 | 454-471 | rendercam     | Bedroom Scene | Far shot of bridge 2              |   Finished   | Needs Render
+  15 |   12?|         |               |    ???????    | Blinking Traffic Light            |              |
+  16 |   12 | 472-486 | thomas_front  | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Needs Render
+  17 |   30 | 498-527 | rendercam     | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
+  18 |   40 | 528-568 | rendercam     | Bedroom Scene | thomas jump!                      |   Finished   | Finished
+  19 |   12 | 569-592 | rendercam     | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
+  20 |   24 | 593-616 | rendercam?    | Bedroom Scene | thomas go!!! (pan view)           |              |
