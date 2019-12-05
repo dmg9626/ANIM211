@@ -9,15 +9,15 @@ Num. |Frames|  Range  |  Camera       | Scene Name     | Description            
   5  |   25 | 127-151 |  rendercam    | Bedroom Scene | Far shot of bridge                |   Finished   | Needs Re-Render (reuse DoF from shot 14)
   6  |   38 | 152-189 |  rendercam    | Bedroom Scene | Behind trains shot                |   Finished   | Needs Re-Render
   7  |   63 | 190-252 |  rendercam    | Bedroom Scene | "You don't like it?"              |   Finished   | Needs Re-Render
-  8  |  133 | 253-386 |  rendercam    | Bedroom Scene | "I don't like it"                 |   Finished   | Missing Frames
+  8  |  133 | 253-386 |  rendercam    | Bedroom Scene | "I don't like it"                 |   Finished   | Needs Re-Render
   9  |   25 | 387-411 |  rendercam    | Bedroom Scene | Thomas Pulls Out (low shot)       |   Finished   | Finished
   10 |   24 | 412-435 |  rendercam    | Bedroom Scene | Thomas Pulls Out (pulled back)    |   Finished   | Missing 4 Frames
   11 |      |         |               | GEARS Scene   | Gears turning (closer/fast)       |              |
   12 |   18 | 436-453 | rendercam     | Bedroom Scene | Under Bridge shot 2               |   Finished   | Needs Render
-  13 |   18 | 436-453 | thomas_wheels | Bedroom Scene | thomas wheels shot                |   Finished   | Needs Render
+  13 |   18 | 436-453 | thomas_wheels | Bedroom Scene | thomas wheels shot                |   Finished   | Finished
   14 |   18 | 454-471 | rendercam     | Bedroom Scene | Far shot of bridge 2              |   Finished   | Needs Render
   15 |   12?|         |               |    ???????    | Blinking Traffic Light            |              |
-  16 |   12 | 472-486 | thomas_front  | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Needs Render
+  16 |   12 | 472-486 | thomas_front  | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Finished
   17 |   30 | 498-527 | rendercam     | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
   18 |   40 | 528-568 | rendercam     | Bedroom Scene | thomas jump!                      |   Finished   | Finished
   19 |   12 | 569-592 | rendercam     | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
