@@ -1,13 +1,13 @@
 Shot | Num. |  Frame  |               |                |                                  |     Shot     |            Render            |
 Num. |Frames|  Range  |  Camera       | Scene Name     | Description                      |    Status    |            Status            |
 ----------------------------------------------------------------------------------------------------------------------------------------
-  1  |   30 | 001-030 |  rendercam    | Bedroom Scene | Barricade lowers over cam         |   Finished   | Needs Re-Render
+  1  |   30 | 001-030 |  rendercam    | Bedroom Scene | Barricade lowers over cam         |   Finished   | Finished
   2  |   24 | 031-054 |  rendercam    | Bedroom Scene | Bar bounces                       |   Finished   | Finished
   3a |   95 | 001-095 |  rendercam    | GEARS Scene   | Gears turning (close up)          |   Finished   | Finished
   3b |   49 | 096-144 |  rendercam    | GEARS Scene   | Gears turning (pulled back)       |   Finished   | Finished
   4  |   72 | 055-126 |  rendercam    | Bedroom Scene | Under bridge shot                 |   Finished   | Finished
-  5  |   25 | 127-151 |  rendercam    | Bedroom Scene | Far shot of bridge                |   Finished   | Needs Re-Render (reuse DoF from shot 14)
-  6  |   38 | 152-189 |  rendercam    | Bedroom Scene | Behind trains shot                |   Finished   | Needs Re-Render
+  5  |   25 | 127-151 |  rendercam    | Bedroom Scene | Far shot of bridge                |   Finished   | Finished 
+  6  |   38 | 152-189 |  rendercam    | Bedroom Scene | Behind trains shot                |   Finished   | Needs Re-Render (gotta lower the barricade to the floor)
   7  |   63 | 190-252 |  rendercam    | Bedroom Scene | "You don't like it?"              |   Finished   | Needs Re-Render
   8  |  133 | 253-386 |  rendercam    | Bedroom Scene | "I don't like it"                 |   Finished   | Needs Re-Render
   9  |   25 | 387-411 |  rendercam    | Bedroom Scene | Thomas Pulls Out (low shot)       |   Finished   | Finished
