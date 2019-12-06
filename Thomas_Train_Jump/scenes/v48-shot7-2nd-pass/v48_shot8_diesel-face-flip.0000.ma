@@ -1,6 +1,6 @@
 //Maya ASCII 2019 scene
-//Name: v48_shot7_v1.000.ma
-//Last modified: Fri, Dec 06, 2019 05:31:37 PM
+//Name: v48_shot8_diesel-face-flip.0000.ma
+//Last modified: Fri, Dec 06, 2019 06:02:47 PM
 //Codeset: 1252
 file -rdi 1 -ns "material_thomas_v1_0001" -rfn "material_thomas_v1_0001RN" -op
 		 "v=0;" -typ "mayaAscii" "C:/Users/Drew/Dropbox/Documents/Assignments/ANIM_211/Thomas_Train_Jump//scenes/Reference Scenes/thomas.ma";
@@ -45,6 +45,7 @@ requires maya "2019";
 requires -nodeType "simplexNoise" "lookdevKit" "1.0";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" -nodeType "aiSkyDomeLight"
 		 -nodeType "aiAreaLight" "mtoa" "3.1.2";
+requires "stereoCamera" "10.0";
 requires "stereoCamera" "10.0";
 currentUnit -l centimeter -a degree -t film;
 fileInfo "application" "maya";
@@ -26165,19 +26166,19 @@ createNode pointConstraint -n "camera_aim_pivot_pointConstraint1" -p "camera_aim
 	setAttr ".o" -type "double3" -29.846655210644933 -4.0233578776200867 28.99589636546429 ;
 	setAttr -k on ".w0";
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "B58B7E26-4948-CD00-AFBF-FC90BF147A23";
+	rename -uid "36BBB305-4D28-5D0D-20C4-82AE77635CE9";
 	setAttr -s 44 ".lnk";
 	setAttr -s 44 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "37FD8BB1-40E0-6D3B-01F5-6C8CDB1CA92D";
+	rename -uid "4F74753F-4D29-2759-D583-13A1AA5DD589";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "E06BC7B6-4A3F-42EA-4619-96B4BD4692F5";
+	rename -uid "8B0BC8E4-4EB1-BCB1-C678-03BC166170B4";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "1A26E0DC-423F-3AD4-A97F-BDB83C5E94B2";
+	rename -uid "2175F03E-41C0-DDAA-343E-64B5567A493D";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "5189F9A1-4221-6E73-076E-C3AE64F047E5";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "A0A84085-47CA-E076-F5DB-42B2095EEE07";
+	rename -uid "93BF9D14-4DDE-D3D9-32CC-1FBA41DAF164";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "AAFC8015-4D3A-423B-9229-C0AA7A36ACBB";
 	setAttr ".g" yes;
@@ -26187,17 +26188,17 @@ createNode script -n "uiConfigurationScriptNode";
 		"// Maya Mel UI Configuration File.\n//\n//  This script is machine generated.  Edit at your own risk.\n//\n//\n\nglobal string $gMainPane;\nif (`paneLayout -exists $gMainPane`) {\n\n\tglobal int $gUseScenePanelConfig;\n\tint    $useSceneConfig = $gUseScenePanelConfig;\n\tint    $nodeEditorPanelVisible = stringArrayContains(\"nodeEditorPanel1\", `getPanel -vis`);\n\tint    $nodeEditorWorkspaceControlOpen = (`workspaceControl -exists nodeEditorPanel1Window` && `workspaceControl -q -visible nodeEditorPanel1Window`);\n\tint    $menusOkayInPanels = `optionVar -q allowMenusInPanels`;\n\tint    $nVisPanes = `paneLayout -q -nvp $gMainPane`;\n\tint    $nPanes = 0;\n\tstring $editorName;\n\tstring $panelName;\n\tstring $itemFilterName;\n\tstring $panelConfig;\n\n\t//\n\t//  get current state of the UI\n\t//\n\tsceneUIReplacement -update $gMainPane;\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Top View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Top View\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"top\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 1\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 1\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 0\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n"
 		+ "            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n"
-		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 552\n            -height 327\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
+		+ "            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n"
 		+ "\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Side View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Side View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"batch_rendercam\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 1\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n"
 		+ "            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n"
-		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1115\n            -height 702\n"
+		+ "            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 0\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 0\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1315\n            -height 702\n"
 		+ "            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Front View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Front View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"front\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 1\n"
 		+ "            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n"
 		+ "            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n"
-		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 552\n            -height 327\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
+		+ "            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1\n            -height 1\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"modelPanel\" (localizedPanelLabel(\"Persp View\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\tmodelPanel -edit -l (localizedPanelLabel(\"Persp View\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        modelEditor -e \n            -camera \"persp\" \n            -useInteractiveMode 0\n            -displayLights \"default\" \n            -displayAppearance \"smoothShaded\" \n            -activeOnly 0\n            -ignorePanZoom 0\n"
 		+ "            -wireframeOnShaded 0\n            -headsUpDisplay 1\n            -holdOuts 1\n            -selectionHiliteDisplay 1\n            -useDefaultMaterial 0\n            -bufferMode \"double\" \n            -twoSidedLighting 0\n            -backfaceCulling 1\n            -xray 0\n            -jointXray 0\n            -activeComponentsXray 0\n            -displayTextures 1\n            -smoothWireframe 0\n            -lineWidth 1\n            -textureAnisotropic 0\n            -textureHilight 1\n            -textureSampling 2\n            -textureDisplay \"modulate\" \n            -textureMaxSize 32768\n            -fogging 0\n            -fogSource \"fragment\" \n            -fogMode \"linear\" \n            -fogStart 0\n            -fogEnd 100\n            -fogDensity 0.1\n            -fogColor 0.5 0.5 0.5 1 \n            -depthOfFieldPreview 1\n            -maxConstantTransparency 1\n            -rendererName \"vp2Renderer\" \n            -objectFilterShowInHUD 1\n            -isFiltered 0\n            -colorResolution 256 256 \n            -bumpResolution 512 512 \n"
 		+ "            -textureCompression 0\n            -transparencyAlgorithm \"frontAndBackCull\" \n            -transpInShadows 0\n            -cullingOverride \"none\" \n            -lowQualityLighting 0\n            -maximumNumHardwareLights 1\n            -occlusionCulling 0\n            -shadingModel 0\n            -useBaseRenderer 0\n            -useReducedRenderer 0\n            -smallObjectCulling 0\n            -smallObjectThreshold -1 \n            -interactiveDisableShadows 0\n            -interactiveBackFaceCull 0\n            -sortTransparent 1\n            -controllers 1\n            -nurbsCurves 1\n            -nurbsSurfaces 1\n            -polymeshes 1\n            -subdivSurfaces 1\n            -planes 1\n            -lights 1\n            -cameras 1\n            -controlVertices 1\n            -hulls 1\n            -grid 1\n            -imagePlane 1\n            -joints 1\n            -ikHandles 1\n            -deformers 1\n            -dynamics 1\n            -particleInstancers 1\n            -fluids 1\n            -hairSystems 1\n            -follicles 1\n"
-		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 552\n            -height 327\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
+		+ "            -nCloths 1\n            -nParticles 1\n            -nRigids 1\n            -dynamicConstraints 1\n            -locators 1\n            -manipulators 1\n            -pluginShapes 1\n            -dimensions 1\n            -handles 1\n            -pivots 1\n            -textures 1\n            -strokes 1\n            -motionTrails 1\n            -clipGhosts 1\n            -greasePencils 1\n            -shadows 0\n            -captureSequenceNumber -1\n            -width 1315\n            -height 702\n            -sceneRenderFilter 0\n            $editorName;\n        modelEditor -e -viewSelected 0 $editorName;\n        modelEditor -e \n            -pluginObjects \"gpuCacheDisplayFilter\" 1 \n            $editorName;\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"ToggledOutliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"ToggledOutliner\")) -mbv $menusOkayInPanels  $panelName;\n"
 		+ "\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 1\n            -showReferenceMembers 1\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n            -expandConnections 0\n            -showUpstreamCurves 1\n            -showUnitlessCurves 1\n            -showCompounds 1\n            -showLeafs 1\n            -showNumericAttrsOnly 0\n            -highlightActive 1\n            -autoSelectNewObjects 0\n            -doNotSelectNewObjects 0\n            -dropIsParent 1\n"
 		+ "            -transmitFilters 0\n            -setFilter \"defaultSetFilter\" \n            -showSetMembers 1\n            -allowMultiSelection 1\n            -alwaysToggleSelect 0\n            -directSelect 0\n            -isSet 0\n            -isSetMember 0\n            -displayMode \"DAG\" \n            -expandObjects 0\n            -setsIgnoreFilters 1\n            -containersIgnoreFilters 0\n            -editAttrName 0\n            -showAttrValues 0\n            -highlightSecondary 0\n            -showUVAttrsOnly 0\n            -showTextureNodesOnly 0\n            -attrAlphaOrder \"default\" \n            -animLayerFilterOptions \"allAffecting\" \n            -sortOrder \"none\" \n            -longNames 0\n            -niceNames 1\n            -showNamespace 1\n            -showPinIcons 0\n            -mapMotionTrails 0\n            -ignoreHiddenAttribute 0\n            -ignoreOutlinerColor 0\n            -renderFilterVisible 0\n            -renderFilterIndex 0\n            -selectionOrder \"chronological\" \n            -expandAttribute 0\n            $editorName;\n"
 		+ "\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\t$panelName = `sceneUIReplacement -getNextPanel \"outlinerPanel\" (localizedPanelLabel(\"Outliner\")) `;\n\tif (\"\" != $panelName) {\n\t\t$label = `panel -q -label $panelName`;\n\t\toutlinerPanel -edit -l (localizedPanelLabel(\"Outliner\")) -mbv $menusOkayInPanels  $panelName;\n\t\t$editorName = $panelName;\n        outlinerEditor -e \n            -showShapes 0\n            -showAssignedMaterials 0\n            -showTimeEditor 1\n            -showReferenceNodes 0\n            -showReferenceMembers 0\n            -showAttributes 0\n            -showConnected 0\n            -showAnimCurvesOnly 0\n            -showMuteInfo 0\n            -organizeByLayer 1\n            -organizeByClip 1\n            -showAnimLayerWeight 1\n            -autoExpandLayers 1\n            -autoExpand 0\n            -showDagOnly 1\n            -showAssets 1\n            -showContainedOnly 1\n            -showPublishedAsConnected 0\n            -showParentContainers 0\n            -showContainerContents 1\n            -ignoreDagHierarchy 0\n"
@@ -26225,13 +26226,13 @@ createNode script -n "uiConfigurationScriptNode";
 		+ "                -useBaseRenderer 0\n                -useReducedRenderer 0\n                -smallObjectCulling 0\n                -smallObjectThreshold -1 \n                -interactiveDisableShadows 0\n                -interactiveBackFaceCull 0\n                -sortTransparent 1\n                -controllers 1\n                -nurbsCurves 1\n                -nurbsSurfaces 1\n                -polymeshes 1\n                -subdivSurfaces 1\n                -planes 1\n                -lights 1\n                -cameras 1\n                -controlVertices 1\n                -hulls 1\n                -grid 1\n                -imagePlane 1\n                -joints 1\n                -ikHandles 1\n                -deformers 1\n                -dynamics 1\n                -particleInstancers 1\n                -fluids 1\n                -hairSystems 1\n                -follicles 1\n                -nCloths 1\n                -nParticles 1\n                -nRigids 1\n                -dynamicConstraints 1\n                -locators 1\n                -manipulators 1\n"
 		+ "                -pluginShapes 1\n                -dimensions 1\n                -handles 1\n                -pivots 1\n                -textures 1\n                -strokes 1\n                -motionTrails 1\n                -clipGhosts 1\n                -greasePencils 1\n                -shadows 0\n                -captureSequenceNumber -1\n                -width 0\n                -height 0\n                -sceneRenderFilter 0\n                -displayMode \"centerEye\" \n                -viewColor 0 0 0 1 \n                -useCustomBackground 1\n                $editorName;\n            stereoCameraView -e -viewSelected 0 $editorName;\n            stereoCameraView -e \n                -pluginObjects \"gpuCacheDisplayFilter\" 1 \n                $editorName; };\n\t\tif (!$useSceneConfig) {\n\t\t\tpanel -e -l $label $panelName;\n\t\t}\n\t}\n\n\n\tif ($useSceneConfig) {\n        string $configName = `getPanel -cwl (localizedPanelLabel(\"Current Layout\"))`;\n        if (\"\" != $configName) {\n\t\t\tpanelConfiguration -edit -label (localizedPanelLabel(\"Current Layout\")) \n"
 		+ "\t\t\t\t-userCreated false\n\t\t\t\t-defaultImage \"\"\n\t\t\t\t-image \"\"\n\t\t\t\t-sc false\n\t\t\t\t-configString \"global string $gMainPane; paneLayout -e -cn \\\"single\\\" -ps 1 100 100 $gMainPane;\"\n\t\t\t\t-removeAllPanels\n\t\t\t\t-ap false\n\t\t\t\t\t(localizedPanelLabel(\"Side View\")) \n\t\t\t\t\t\"modelPanel\"\n"
-		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Side View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"batch_rendercam\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 1\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 0\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1115\\n    -height 702\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
-		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Side View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"batch_rendercam\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 1\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 0\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1115\\n    -height 702\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"$panelName = `modelPanel -unParent -l (localizedPanelLabel(\\\"Side View\\\")) -mbv $menusOkayInPanels `;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"batch_rendercam\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 1\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 0\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1315\\n    -height 702\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
+		+ "\t\t\t\t\t\"modelPanel -edit -l (localizedPanelLabel(\\\"Side View\\\")) -mbv $menusOkayInPanels  $panelName;\\n$editorName = $panelName;\\nmodelEditor -e \\n    -camera \\\"batch_rendercam\\\" \\n    -useInteractiveMode 0\\n    -displayLights \\\"default\\\" \\n    -displayAppearance \\\"smoothShaded\\\" \\n    -activeOnly 0\\n    -ignorePanZoom 0\\n    -wireframeOnShaded 0\\n    -headsUpDisplay 1\\n    -holdOuts 1\\n    -selectionHiliteDisplay 1\\n    -useDefaultMaterial 0\\n    -bufferMode \\\"double\\\" \\n    -twoSidedLighting 0\\n    -backfaceCulling 1\\n    -xray 0\\n    -jointXray 0\\n    -activeComponentsXray 0\\n    -displayTextures 1\\n    -smoothWireframe 0\\n    -lineWidth 1\\n    -textureAnisotropic 0\\n    -textureHilight 1\\n    -textureSampling 2\\n    -textureDisplay \\\"modulate\\\" \\n    -textureMaxSize 32768\\n    -fogging 0\\n    -fogSource \\\"fragment\\\" \\n    -fogMode \\\"linear\\\" \\n    -fogStart 0\\n    -fogEnd 100\\n    -fogDensity 0.1\\n    -fogColor 0.5 0.5 0.5 1 \\n    -depthOfFieldPreview 1\\n    -maxConstantTransparency 1\\n    -rendererName \\\"vp2Renderer\\\" \\n    -objectFilterShowInHUD 1\\n    -isFiltered 0\\n    -colorResolution 256 256 \\n    -bumpResolution 512 512 \\n    -textureCompression 0\\n    -transparencyAlgorithm \\\"frontAndBackCull\\\" \\n    -transpInShadows 0\\n    -cullingOverride \\\"none\\\" \\n    -lowQualityLighting 0\\n    -maximumNumHardwareLights 1\\n    -occlusionCulling 0\\n    -shadingModel 0\\n    -useBaseRenderer 0\\n    -useReducedRenderer 0\\n    -smallObjectCulling 0\\n    -smallObjectThreshold -1 \\n    -interactiveDisableShadows 0\\n    -interactiveBackFaceCull 0\\n    -sortTransparent 1\\n    -controllers 1\\n    -nurbsCurves 1\\n    -nurbsSurfaces 1\\n    -polymeshes 1\\n    -subdivSurfaces 1\\n    -planes 1\\n    -lights 1\\n    -cameras 1\\n    -controlVertices 1\\n    -hulls 1\\n    -grid 0\\n    -imagePlane 1\\n    -joints 1\\n    -ikHandles 1\\n    -deformers 1\\n    -dynamics 0\\n    -particleInstancers 1\\n    -fluids 1\\n    -hairSystems 1\\n    -follicles 1\\n    -nCloths 1\\n    -nParticles 1\\n    -nRigids 1\\n    -dynamicConstraints 1\\n    -locators 1\\n    -manipulators 1\\n    -pluginShapes 1\\n    -dimensions 1\\n    -handles 1\\n    -pivots 1\\n    -textures 1\\n    -strokes 1\\n    -motionTrails 1\\n    -clipGhosts 1\\n    -greasePencils 1\\n    -shadows 0\\n    -captureSequenceNumber -1\\n    -width 1315\\n    -height 702\\n    -sceneRenderFilter 0\\n    $editorName;\\nmodelEditor -e -viewSelected 0 $editorName;\\nmodelEditor -e \\n    -pluginObjects \\\"gpuCacheDisplayFilter\\\" 1 \\n    $editorName\"\n"
 		+ "\t\t\t\t$configName;\n\n            setNamedPanelLayout (localizedPanelLabel(\"Current Layout\"));\n        }\n\n        panelHistory -e -clear mainPanelHistory;\n        sceneUIReplacement -clear;\n\t}\n\n\ngrid -spacing 5 -size 12 -divisions 5 -displayAxes yes -displayGridLines yes -displayDivisionLines yes -displayPerspectiveLabels no -displayOrthographicLabels no -displayAxesBold yes -perspectiveLabelPosition axis -orthographicLabelPosition edge;\nviewManip -drawCompass 0 -compassAngle 0 -frontParameters \"\" -homeParameters \"\" -selectionLockParameters \"\";\n}\n");
 	setAttr ".st" 3;
 createNode script -n "sceneConfigurationScriptNode";
 	rename -uid "CD0775D2-44EA-70DA-7CBB-77A52C67A90A";
-	setAttr ".b" -type "string" "playbackOptions -min 200 -max 252 -ast 1 -aet 641 ";
+	setAttr ".b" -type "string" "playbackOptions -min 253 -max 300 -ast 1 -aet 641 ";
 	setAttr ".st" 6;
 createNode transformGeometry -n "transformGeometry9";
 	rename -uid "B8226C4E-4868-9CA6-B715-0DA7C6F1CCE8";
@@ -26406,8 +26407,7 @@ createNode reference -n "material_thomas_v1_0001RN";
 		2 "|Thomas|material_thomas_v1_0001:Thomas" "rotateZ" " -av"
 		2 "|Thomas|material_thomas_v1_0001:Thomas" "scale" " -type \"double3\" 1 1 1"
 		
-		2 "|Thomas|material_thomas_v1_0001:Thomas" "Turn_Head" " -av -k 1 -39.12620027434842029"
-		
+		2 "|Thomas|material_thomas_v1_0001:Thomas" "Turn_Head" " -av -k 1 -50"
 		2 "|Thomas|material_thomas_v1_0001:Thomas|material_thomas_v1_0001:Thomas_Pivot|material_thomas_v1_0001:Body|material_thomas_v1_0001:BodyShape" 
 		"dispResolution" " 3"
 		2 "|Thomas|material_thomas_v1_0001:Thomas|material_thomas_v1_0001:Thomas_Pivot|material_thomas_v1_0001:Body|material_thomas_v1_0001:BodyShape" 
@@ -26625,26 +26625,26 @@ lockNode -l 1 ;
 createNode reference -n "track_decorativeRN2";
 	rename -uid "AF93C8AC-4F92-5525-DE00-3BA726EBBA0A";
 	setAttr -s 66 ".phl";
-	setAttr ".phl[429]" 0;
-	setAttr ".phl[430]" 0;
-	setAttr ".phl[431]" 0;
-	setAttr ".phl[432]" 0;
-	setAttr ".phl[433]" 0;
-	setAttr ".phl[434]" 0;
-	setAttr ".phl[435]" 0;
-	setAttr ".phl[436]" 0;
-	setAttr ".phl[437]" 0;
-	setAttr ".phl[438]" 0;
-	setAttr ".phl[439]" 0;
-	setAttr ".phl[440]" 0;
-	setAttr ".phl[441]" 0;
-	setAttr ".phl[442]" 0;
-	setAttr ".phl[443]" 0;
-	setAttr ".phl[444]" 0;
-	setAttr ".phl[445]" 0;
-	setAttr ".phl[446]" 0;
-	setAttr ".phl[447]" 0;
-	setAttr ".phl[448]" 0;
+	setAttr ".phl[449]" 0;
+	setAttr ".phl[450]" 0;
+	setAttr ".phl[451]" 0;
+	setAttr ".phl[452]" 0;
+	setAttr ".phl[453]" 0;
+	setAttr ".phl[454]" 0;
+	setAttr ".phl[455]" 0;
+	setAttr ".phl[456]" 0;
+	setAttr ".phl[457]" 0;
+	setAttr ".phl[458]" 0;
+	setAttr ".phl[459]" 0;
+	setAttr ".phl[460]" 0;
+	setAttr ".phl[461]" 0;
+	setAttr ".phl[462]" 0;
+	setAttr ".phl[463]" 0;
+	setAttr ".phl[464]" 0;
+	setAttr ".phl[465]" 0;
+	setAttr ".phl[466]" 0;
+	setAttr ".phl[467]" 0;
+	setAttr ".phl[468]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"track_decorativeRN2"
 		"track_decorativeRN2" 55
@@ -26667,18 +26667,6 @@ createNode reference -n "track_decorativeRN2";
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[48]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[369]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[370]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[371]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[372]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[373]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[374]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[389]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[390]" ""
@@ -26690,34 +26678,6 @@ createNode reference -n "track_decorativeRN2";
 		"track_decorativeRN2.placeHolderList[393]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[394]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[395]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[396]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[397]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[398]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[399]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[400]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[401]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[402]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[403]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[404]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[405]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[406]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[407]" ""
-		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[408]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[409]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
@@ -26758,13 +26718,6 @@ createNode reference -n "track_decorativeRN2";
 		"track_decorativeRN2.placeHolderList[427]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[428]" ""
-		"track_decorativeRN2" 23
-		0 "|track_decorative2:group" "|Environment|Zone_A|Pile_of_Track|Track_Decorative3" 
-		"-s -r "
-		2 "|Environment|Zone_A|Pile_of_Track|Track_Decorative3|track_decorative2:group|track_decorative2:pasted__Environment|track_decorative2:pasted__Pile_of_Track|track_decorative2:pasted__Track_decorative|track_decorative2:pasted__Track_decorativeShape" 
-		"dispResolution" " 1"
-		2 "|Environment|Zone_A|Pile_of_Track|Track_Decorative3|track_decorative2:group|track_decorative2:pasted__Environment|track_decorative2:pasted__Pile_of_Track|track_decorative2:pasted__Track_decorative|track_decorative2:pasted__Track_decorativeShape" 
-		"displaySmoothMesh" " 0"
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[429]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
@@ -26804,7 +26757,54 @@ createNode reference -n "track_decorativeRN2";
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
 		"track_decorativeRN2.placeHolderList[447]" ""
 		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
-		"track_decorativeRN2.placeHolderList[448]" "";
+		"track_decorativeRN2.placeHolderList[448]" ""
+		"track_decorativeRN2" 23
+		0 "|track_decorative2:group" "|Environment|Zone_A|Pile_of_Track|Track_Decorative3" 
+		"-s -r "
+		2 "|Environment|Zone_A|Pile_of_Track|Track_Decorative3|track_decorative2:group|track_decorative2:pasted__Environment|track_decorative2:pasted__Pile_of_Track|track_decorative2:pasted__Track_decorative|track_decorative2:pasted__Track_decorativeShape" 
+		"dispResolution" " 1"
+		2 "|Environment|Zone_A|Pile_of_Track|Track_Decorative3|track_decorative2:group|track_decorative2:pasted__Environment|track_decorative2:pasted__Pile_of_Track|track_decorative2:pasted__Track_decorative|track_decorative2:pasted__Track_decorativeShape" 
+		"displaySmoothMesh" " 0"
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[449]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[450]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[451]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[452]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[453]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[454]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[455]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[456]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[457]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[458]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[459]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[460]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[461]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[462]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[463]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[464]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[465]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[466]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[467]" ""
+		5 4 "track_decorativeRN2" "track_decorative2:blinn1SG.dagSetMembers" 
+		"track_decorativeRN2.placeHolderList[468]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode blinn -n "Barricade_Bar_Mat";
@@ -26930,60 +26930,60 @@ createNode place2dTexture -n "place2dTexture8";
 createNode reference -n "track_longRN";
 	rename -uid "93D99625-4D9D-6553-82BC-879D5E9683C6";
 	setAttr -s 63 ".phl";
-	setAttr ".phl[607]" 0;
-	setAttr ".phl[608]" 0;
-	setAttr ".phl[609]" 0;
-	setAttr ".phl[610]" 0;
-	setAttr ".phl[611]" 0;
-	setAttr ".phl[612]" 0;
-	setAttr ".phl[613]" 0;
-	setAttr ".phl[614]" 0;
-	setAttr ".phl[615]" 0;
-	setAttr ".phl[616]" 0;
-	setAttr ".phl[617]" 0;
-	setAttr ".phl[618]" 0;
-	setAttr ".phl[619]" 0;
-	setAttr ".phl[620]" 0;
-	setAttr ".phl[621]" 0;
-	setAttr ".phl[622]" 0;
-	setAttr ".phl[623]" 0;
-	setAttr ".phl[624]" 0;
-	setAttr ".phl[625]" 0;
-	setAttr ".phl[626]" 0;
-	setAttr ".phl[627]" 0;
-	setAttr ".phl[628]" 0;
-	setAttr ".phl[629]" 0;
-	setAttr ".phl[630]" 0;
-	setAttr ".phl[631]" 0;
-	setAttr ".phl[632]" 0;
-	setAttr ".phl[633]" 0;
-	setAttr ".phl[634]" 0;
-	setAttr ".phl[635]" 0;
-	setAttr ".phl[636]" 0;
-	setAttr ".phl[637]" 0;
-	setAttr ".phl[638]" 0;
-	setAttr ".phl[639]" 0;
-	setAttr ".phl[640]" 0;
-	setAttr ".phl[641]" 0;
-	setAttr ".phl[642]" 0;
-	setAttr ".phl[643]" 0;
-	setAttr ".phl[644]" 0;
-	setAttr ".phl[645]" 0;
-	setAttr ".phl[646]" 0;
-	setAttr ".phl[647]" 0;
-	setAttr ".phl[648]" 0;
-	setAttr ".phl[649]" 0;
-	setAttr ".phl[650]" 0;
-	setAttr ".phl[651]" 0;
-	setAttr ".phl[652]" 0;
-	setAttr ".phl[653]" 0;
-	setAttr ".phl[654]" 0;
-	setAttr ".phl[655]" 0;
-	setAttr ".phl[656]" 0;
-	setAttr ".phl[657]" 0;
-	setAttr ".phl[658]" 0;
-	setAttr ".phl[659]" 0;
-	setAttr ".phl[660]" 0;
+	setAttr ".phl[661]" 0;
+	setAttr ".phl[662]" 0;
+	setAttr ".phl[663]" 0;
+	setAttr ".phl[664]" 0;
+	setAttr ".phl[665]" 0;
+	setAttr ".phl[666]" 0;
+	setAttr ".phl[667]" 0;
+	setAttr ".phl[668]" 0;
+	setAttr ".phl[669]" 0;
+	setAttr ".phl[670]" 0;
+	setAttr ".phl[671]" 0;
+	setAttr ".phl[672]" 0;
+	setAttr ".phl[673]" 0;
+	setAttr ".phl[674]" 0;
+	setAttr ".phl[675]" 0;
+	setAttr ".phl[676]" 0;
+	setAttr ".phl[677]" 0;
+	setAttr ".phl[678]" 0;
+	setAttr ".phl[679]" 0;
+	setAttr ".phl[680]" 0;
+	setAttr ".phl[681]" 0;
+	setAttr ".phl[682]" 0;
+	setAttr ".phl[683]" 0;
+	setAttr ".phl[684]" 0;
+	setAttr ".phl[685]" 0;
+	setAttr ".phl[686]" 0;
+	setAttr ".phl[687]" 0;
+	setAttr ".phl[688]" 0;
+	setAttr ".phl[689]" 0;
+	setAttr ".phl[690]" 0;
+	setAttr ".phl[691]" 0;
+	setAttr ".phl[692]" 0;
+	setAttr ".phl[693]" 0;
+	setAttr ".phl[694]" 0;
+	setAttr ".phl[695]" 0;
+	setAttr ".phl[696]" 0;
+	setAttr ".phl[697]" 0;
+	setAttr ".phl[698]" 0;
+	setAttr ".phl[699]" 0;
+	setAttr ".phl[700]" 0;
+	setAttr ".phl[701]" 0;
+	setAttr ".phl[702]" 0;
+	setAttr ".phl[703]" 0;
+	setAttr ".phl[704]" 0;
+	setAttr ".phl[705]" 0;
+	setAttr ".phl[706]" 0;
+	setAttr ".phl[707]" 0;
+	setAttr ".phl[708]" 0;
+	setAttr ".phl[709]" 0;
+	setAttr ".phl[710]" 0;
+	setAttr ".phl[711]" 0;
+	setAttr ".phl[712]" 0;
+	setAttr ".phl[713]" 0;
+	setAttr ".phl[714]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"track_longRN"
 		"track_longRN" 21
@@ -27006,12 +27006,6 @@ createNode reference -n "track_longRN";
 		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[81]" 
 		""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[544]" ""
-		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[545]" ""
-		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[546]" ""
-		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
 		"track_longRN.placeHolderList[574]" ""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
 		"track_longRN.placeHolderList[575]" ""
@@ -27029,6 +27023,12 @@ createNode reference -n "track_longRN";
 		"track_longRN.placeHolderList[605]" ""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
 		"track_longRN.placeHolderList[606]" ""
+		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
+		"track_longRN.placeHolderList[658]" ""
+		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
+		"track_longRN.placeHolderList[659]" ""
+		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
+		"track_longRN.placeHolderList[660]" ""
 		"track_longRN" 60
 		0 "|track_long:track_extraLong" "|Environment|Zone_A|Track|Track_Right" "-s -r "
 		
@@ -27043,114 +27043,114 @@ createNode reference -n "track_longRN";
 		"dispResolution" " 1"
 		2 "|Environment|Zone_A|Track|Track_Right|track_long:track_extraLong|track_long:track_extraLongShape" 
 		"displaySmoothMesh" " 0"
-		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[607]" 
+		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[661]" 
 		""
-		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[608]" 
+		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[662]" 
 		""
-		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[609]" 
+		5 3 "track_longRN" "track_long:pasted__set1.memberWireframeColor" "track_longRN.placeHolderList[663]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[610]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[664]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[611]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[665]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[612]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[666]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[613]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[667]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[614]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[668]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[615]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[669]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[616]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[670]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[617]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[671]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[618]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[672]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[619]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[673]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[620]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[674]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[621]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[675]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[622]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[676]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[623]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[677]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[624]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[678]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[625]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[679]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[626]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[680]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[627]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[681]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[628]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[682]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[629]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[683]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[630]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[684]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[631]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[685]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[632]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[686]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[633]" 
+		5 4 "track_longRN" "track_long:pasted__set1.groupNodes" "track_longRN.placeHolderList[687]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[634]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[688]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[635]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[689]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[636]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[690]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[637]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[691]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[638]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[692]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[639]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[693]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[640]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[694]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[641]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[695]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[642]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[696]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[643]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[697]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[644]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[698]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[645]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[699]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[646]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[700]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[647]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[701]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[648]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[702]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[649]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[703]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[650]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[704]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[651]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[705]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[652]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[706]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[653]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[707]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[654]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[708]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[655]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[709]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[656]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[710]" 
 		""
-		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[657]" 
+		5 4 "track_longRN" "track_long:pasted__set1.dagSetMembers" "track_longRN.placeHolderList[711]" 
 		""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[658]" ""
+		"track_longRN.placeHolderList[712]" ""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[659]" ""
+		"track_longRN.placeHolderList[713]" ""
 		5 4 "track_longRN" "track_long:track_decorative2:blinn1SG.dagSetMembers" 
-		"track_longRN.placeHolderList[660]" "";
+		"track_longRN.placeHolderList[714]" "";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
 createNode groupId -n "groupId23";
@@ -27176,30 +27176,18 @@ createNode animCurveTA -n "group1_rotateZ";
 createNode reference -n "bedRN";
 	rename -uid "CDD27A59-4446-A287-D402-CE83FE9C3A81";
 	setAttr -s 24 ".phl";
-	setAttr ".phl[139]" 0;
-	setAttr ".phl[140]" 0;
-	setAttr ".phl[141]" 0;
-	setAttr ".phl[142]" 0;
-	setAttr ".phl[143]" 0;
-	setAttr ".phl[144]" 0;
+	setAttr ".phl[145]" 0;
+	setAttr ".phl[146]" 0;
+	setAttr ".phl[147]" 0;
+	setAttr ".phl[148]" 0;
+	setAttr ".phl[149]" 0;
+	setAttr ".phl[150]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"bedRN"
 		"bedRN" 21
 		0 "|bed:Bed" "|Environment|Bed" "-s -r "
 		0 "|bed:Bed" "|Environment|Bed" "-s -r "
 		0 "|bed:Bed" "|Environment|Bed" "-s -r "
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[121]" 
-		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[122]" 
-		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[123]" 
-		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[124]" 
-		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[125]" 
-		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[126]" 
-		""
 		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[127]" 
 		""
 		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[128]" 
@@ -27224,6 +27212,18 @@ createNode reference -n "bedRN";
 		""
 		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[138]" 
 		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[139]" 
+		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[140]" 
+		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[141]" 
+		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[142]" 
+		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[143]" 
+		""
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[144]" 
+		""
 		"bedRN" 26
 		0 "|bed:Bed" "|Environment|Bed" "-s -r "
 		2 "|Environment|Bed|bed:Bed" "translate" " -type \"double3\" -287.53516356401235043 37.89360451892587633 410.65094476494226683"
@@ -27237,13 +27237,13 @@ createNode reference -n "bedRN";
 		2 "|Environment|Bed|bed:Bed" "scalePivotTranslate" " -type \"double3\" 0 -34.15400610418367933 25.39578066385163169"
 		
 		2 "|Environment|Bed|bed:Bed|bed:Pillow|bed:nRigid_Pillow|bed:nRigid_PillowShape" 
-		"cacheWidth" " 53"
+		"cacheWidth" " 48"
 		2 "|Environment|Bed|bed:Bed|bed:Pillow|bed:Pillow|bed:PillowShape" "dispResolution" 
 		" 1"
 		2 "|Environment|Bed|bed:Bed|bed:Pillow|bed:Pillow|bed:PillowShape" "displaySmoothMesh" 
 		" 0"
 		2 "|Environment|Bed|bed:Bed|bed:Blanket|bed:nCloth1|bed:nClothShape1" "cacheWidth" 
-		" 53"
+		" 48"
 		2 "|Environment|Bed|bed:Bed|bed:Blanket|bed:Blanket|bed:outputCloth1" "dispResolution" 
 		" 1"
 		2 "|Environment|Bed|bed:Bed|bed:Blanket|bed:Blanket|bed:outputCloth1" "displaySmoothMesh" 
@@ -27263,18 +27263,18 @@ createNode reference -n "bedRN";
 		2 "|Environment|Bed|bed:Bed|bed:Bed|bed:Mattress|bed:MattressShape" "displaySmoothMesh" 
 		" 0"
 		2 "|Environment|Bed|bed:Bed|bed:nRigid_Bed|bed:nRigid_BedShape" "cacheWidth" 
-		" 53"
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[139]" 
+		" 48"
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[145]" 
 		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[140]" 
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[146]" 
 		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[141]" 
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[147]" 
 		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[142]" 
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[148]" 
 		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[143]" 
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[149]" 
 		""
-		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[144]" 
+		5 4 "bedRN" "bed:blinn1SG.dagSetMembers" "bedRN.placeHolderList[150]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -27363,6 +27363,7 @@ createNode blinn -n "Wallpaper_Mat";
 createNode shadingEngine -n "blinn9SG";
 	rename -uid "88B0D82F-4DF9-08F2-CC48-A6A50BAFAB67";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo12";
 	rename -uid "8A656BE0-4F70-38B7-9FF1-579C4FE21832";
@@ -27399,14 +27400,14 @@ createNode place2dTexture -n "place2dTexture17";
 createNode reference -n "power_outletRN";
 	rename -uid "EC01DAD1-4E06-31D7-5BA1-0E86BDA69436";
 	setAttr -s 32 ".phl";
-	setAttr ".phl[185]" 0;
-	setAttr ".phl[186]" 0;
-	setAttr ".phl[187]" 0;
-	setAttr ".phl[188]" 0;
-	setAttr ".phl[189]" 0;
-	setAttr ".phl[190]" 0;
-	setAttr ".phl[191]" 0;
-	setAttr ".phl[192]" 0;
+	setAttr ".phl[193]" 0;
+	setAttr ".phl[194]" 0;
+	setAttr ".phl[195]" 0;
+	setAttr ".phl[196]" 0;
+	setAttr ".phl[197]" 0;
+	setAttr ".phl[198]" 0;
+	setAttr ".phl[199]" 0;
+	setAttr ".phl[200]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"power_outletRN"
 		"power_outletRN" 27
@@ -27416,22 +27417,6 @@ createNode reference -n "power_outletRN";
 		"-s -r "
 		0 "|power_outlet:Power_Outlet" "|Environment|Power_Outlets|Power_Outlet3" 
 		"-s -r "
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[161]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[162]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[163]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[164]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[165]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[166]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[167]" 
-		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[168]" 
-		""
 		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[169]" 
 		""
 		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[170]" 
@@ -27464,6 +27449,22 @@ createNode reference -n "power_outletRN";
 		""
 		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[184]" 
 		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[185]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[186]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[187]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[188]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[189]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[190]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[191]" 
+		""
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[192]" 
+		""
 		"power_outletRN" 18
 		0 "|power_outlet:Power_Outlet" "|Environment|Power_Outlets|Power_Outlet3" 
 		"-s -r "
@@ -27485,21 +27486,21 @@ createNode reference -n "power_outletRN";
 		"dispResolution" " 1"
 		2 "|Environment|Power_Outlets|Power_Outlet3|power_outlet:Power_Outlet|power_outlet:Screws|power_outlet:Screw_Top|power_outlet:Screw_TopShape" 
 		"displaySmoothMesh" " 0"
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[185]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[193]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[186]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[194]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[187]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[195]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[188]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[196]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[189]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[197]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[190]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[198]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[191]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[199]" 
 		""
-		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[192]" 
+		5 4 "power_outletRN" "power_outlet:blinn1SG.dagSetMembers" "power_outletRN.placeHolderList[200]" 
 		"";
 	setAttr ".ptag" -type "string" "";
 lockNode -l 1 ;
@@ -27523,33 +27524,6 @@ createNode reference -n "diesel_v2RN";
 	rename -uid "7D453DFC-4303-EED9-01CA-05BBFB17B947";
 	setAttr ".fn[0]" -type "string" "S:/dmg346/ANIM211/Thomas_Train_Jump//scenes/diesel_revisions/diesel_v2.ma";
 	setAttr -s 85 ".phl";
-	setAttr ".phl[542]" 0;
-	setAttr ".phl[543]" 0;
-	setAttr ".phl[544]" 0;
-	setAttr ".phl[545]" 0;
-	setAttr ".phl[546]" 0;
-	setAttr ".phl[547]" 0;
-	setAttr ".phl[548]" 0;
-	setAttr ".phl[549]" 0;
-	setAttr ".phl[550]" 0;
-	setAttr ".phl[551]" 0;
-	setAttr ".phl[552]" 0;
-	setAttr ".phl[553]" 0;
-	setAttr ".phl[554]" 0;
-	setAttr ".phl[555]" 0;
-	setAttr ".phl[556]" 0;
-	setAttr ".phl[557]" 0;
-	setAttr ".phl[558]" 0;
-	setAttr ".phl[559]" 0;
-	setAttr ".phl[560]" 0;
-	setAttr ".phl[561]" 0;
-	setAttr ".phl[562]" 0;
-	setAttr ".phl[563]" 0;
-	setAttr ".phl[564]" 0;
-	setAttr ".phl[565]" 0;
-	setAttr ".phl[566]" 0;
-	setAttr ".phl[567]" 0;
-	setAttr ".phl[568]" 0;
 	setAttr ".phl[569]" 0;
 	setAttr ".phl[570]" 0;
 	setAttr ".phl[571]" 0;
@@ -27560,60 +27534,39 @@ createNode reference -n "diesel_v2RN";
 	setAttr ".phl[576]" 0;
 	setAttr ".phl[577]" 0;
 	setAttr ".phl[578]" 0;
+	setAttr ".phl[579]" 0;
+	setAttr ".phl[580]" 0;
+	setAttr ".phl[581]" 0;
+	setAttr ".phl[582]" 0;
+	setAttr ".phl[583]" 0;
+	setAttr ".phl[584]" 0;
+	setAttr ".phl[585]" 0;
+	setAttr ".phl[586]" 0;
+	setAttr ".phl[587]" 0;
+	setAttr ".phl[588]" 0;
+	setAttr ".phl[589]" 0;
+	setAttr ".phl[590]" 0;
+	setAttr ".phl[591]" 0;
+	setAttr ".phl[592]" 0;
+	setAttr ".phl[593]" 0;
+	setAttr ".phl[594]" 0;
+	setAttr ".phl[595]" 0;
+	setAttr ".phl[596]" 0;
+	setAttr ".phl[597]" 0;
+	setAttr ".phl[598]" 0;
+	setAttr ".phl[599]" 0;
+	setAttr ".phl[600]" 0;
+	setAttr ".phl[601]" 0;
+	setAttr ".phl[602]" 0;
+	setAttr ".phl[603]" 0;
+	setAttr ".phl[604]" 0;
+	setAttr ".phl[605]" 0;
 	setAttr ".ed" -type "dataReferenceEdits" 
 		"diesel_v2RN"
 		"diesel_v2RN" 53
 		0 "|diesel_v2:Diesel" "|Diesel" "-s -r "
 		0 "|diesel_v2:Diesel" "|Diesel" "-s -r "
 		5 3 "diesel_v2RN" "diesel_v2:unitConversion1.message" "diesel_v2RN.placeHolderList[72]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[481]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[482]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[483]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[484]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[485]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[486]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[487]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[488]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[489]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[490]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[491]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[492]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[493]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[494]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[495]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[496]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[497]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[498]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[499]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[500]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[501]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[502]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[503]" 
-		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[504]" 
 		""
 		5 3 "diesel_v2RN" "diesel_v2:unitConversion1.message" "diesel_v2RN.placeHolderList[513]" 
 		""
@@ -27667,13 +27620,61 @@ createNode reference -n "diesel_v2RN";
 		""
 		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[541]" 
 		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[545]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[546]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[547]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[548]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[549]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[550]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[551]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[552]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[553]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[554]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[555]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[556]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[557]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[558]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[559]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[560]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[561]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[562]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[563]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[564]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[565]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[566]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[567]" 
+		""
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[568]" 
+		""
 		"diesel_v2RN" 88
 		0 "|diesel_v2:Diesel" "|Diesel" "-s -r "
 		2 "|Diesel|diesel_v2:Diesel" "translate" " -type \"double3\" -11.31627192348241806 0 -25"
 		
 		2 "|Diesel|diesel_v2:Diesel" "scalePivot" " -type \"double3\" 11.31627178192138672 0 0"
 		
-		2 "|Diesel|diesel_v2:Diesel" "Turn_Head" " -av -k 1 0"
+		2 "|Diesel|diesel_v2:Diesel" "Turn_Head" " -av -k 1 35"
 		2 "|Diesel|diesel_v2:Diesel|diesel_v2:Diesel_Pivot|diesel_v2:Face|diesel_v2:FaceShape" 
 		"dispResolution" " 1"
 		2 "|Diesel|diesel_v2:Diesel|diesel_v2:Diesel_Pivot|diesel_v2:Face|diesel_v2:FaceShape" 
@@ -27763,82 +27764,82 @@ createNode reference -n "diesel_v2RN";
 		
 		2 "diesel_v2:aiStandardSurface1" "specularRoughness" " 0.69930070638656616"
 		
-		2 "diesel_v2:file8" "fileTextureName" " -type \"string\" \"S:/dmg346/ANIM211/Thomas_Train_Jump//sourceimages/Textures/Diesel/Faces/Face_Happy_Right_ColorMap.png\""
+		2 "diesel_v2:file8" "fileTextureName" " -type \"string\" \"S:/dmg346/ANIM211/Thomas_Train_Jump//sourceimages/Textures/Diesel/Faces/Face_Happy_ColorMap.png\""
 		
 		2 "diesel_v2:file8" "colorSpace" " -type \"string\" \"sRGB\""
-		5 4 "diesel_v2RN" "|Diesel|diesel_v2:Diesel.Turn_Head" "diesel_v2RN.placeHolderList[542]" 
+		5 4 "diesel_v2RN" "|Diesel|diesel_v2:Diesel.Turn_Head" "diesel_v2RN.placeHolderList[569]" 
 		""
-		5 4 "diesel_v2RN" "|Diesel|diesel_v2:Diesel.translateZ" "diesel_v2RN.placeHolderList[543]" 
+		5 4 "diesel_v2RN" "|Diesel|diesel_v2:Diesel.translateZ" "diesel_v2RN.placeHolderList[570]" 
 		""
 		5 4 "diesel_v2RN" "|Diesel|diesel_v2:Diesel|diesel_v2:Diesel_Pivot|diesel_v2:Face|diesel_v2:FaceShape.instObjGroups.objectGroups[0].objectGrpColor" 
-		"diesel_v2RN.placeHolderList[544]" ""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[545]" 
+		"diesel_v2RN.placeHolderList[571]" ""
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[572]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[546]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[573]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[547]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[574]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[548]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[575]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[549]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert3SG.dagSetMembers" "diesel_v2RN.placeHolderList[576]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[550]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[577]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[551]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[578]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[552]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[579]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[553]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[580]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[554]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[581]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[555]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[582]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[556]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[583]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[557]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[584]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[558]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[585]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[559]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[586]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[560]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[587]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[561]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[588]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[562]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[589]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[563]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[590]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[564]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[591]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[565]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[592]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[566]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[593]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[567]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[594]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[568]" 
+		5 4 "diesel_v2RN" "diesel_v2:lambert2SG.dagSetMembers" "diesel_v2RN.placeHolderList[595]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:file6.colorManagementEnabled" "diesel_v2RN.placeHolderList[569]" 
+		5 4 "diesel_v2RN" "diesel_v2:file6.colorManagementEnabled" "diesel_v2RN.placeHolderList[596]" 
 		""
 		5 4 "diesel_v2RN" "diesel_v2:file6.colorManagementConfigFileEnabled" 
-		"diesel_v2RN.placeHolderList[570]" ""
-		5 4 "diesel_v2RN" "diesel_v2:file6.colorManagementConfigFilePath" "diesel_v2RN.placeHolderList[571]" 
+		"diesel_v2RN.placeHolderList[597]" ""
+		5 4 "diesel_v2RN" "diesel_v2:file6.colorManagementConfigFilePath" "diesel_v2RN.placeHolderList[598]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:file6.workingSpace" "diesel_v2RN.placeHolderList[572]" 
+		5 4 "diesel_v2RN" "diesel_v2:file6.workingSpace" "diesel_v2RN.placeHolderList[599]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:file7.colorManagementEnabled" "diesel_v2RN.placeHolderList[573]" 
+		5 4 "diesel_v2RN" "diesel_v2:file7.colorManagementEnabled" "diesel_v2RN.placeHolderList[600]" 
 		""
 		5 4 "diesel_v2RN" "diesel_v2:file7.colorManagementConfigFileEnabled" 
-		"diesel_v2RN.placeHolderList[574]" ""
-		5 4 "diesel_v2RN" "diesel_v2:file7.colorManagementConfigFilePath" "diesel_v2RN.placeHolderList[575]" 
+		"diesel_v2RN.placeHolderList[601]" ""
+		5 4 "diesel_v2RN" "diesel_v2:file7.colorManagementConfigFilePath" "diesel_v2RN.placeHolderList[602]" 
 		""
-		5 4 "diesel_v2RN" "diesel_v2:file7.workingSpace" "diesel_v2RN.placeHolderList[576]" 
+		5 4 "diesel_v2RN" "diesel_v2:file7.workingSpace" "diesel_v2RN.placeHolderList[603]" 
 		""
-		5 3 "diesel_v2RN" "diesel_v2:unitConversion1.message" "diesel_v2RN.placeHolderList[577]" 
+		5 3 "diesel_v2RN" "diesel_v2:unitConversion1.message" "diesel_v2RN.placeHolderList[604]" 
 		""
-		5 3 "diesel_v2RN" "diesel_v2:aiStandardSurface1SG.message" "diesel_v2RN.placeHolderList[578]" 
+		5 3 "diesel_v2RN" "diesel_v2:aiStandardSurface1SG.message" "diesel_v2RN.placeHolderList[605]" 
 		"";
 lockNode -l 1 ;
 createNode animCurveTL -n "Thomas_translateZ";
@@ -28184,23 +28185,23 @@ createNode animCurveTL -n "camera1_aim_translateZ";
 	setAttr -s 2 ".kox[0:1]"  0.01928152276494129 1;
 	setAttr -s 2 ".koy[0:1]"  -0.99981409415944178 0;
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "53392313-45FB-52C4-352D-49B6F379B460";
+	rename -uid "1EAA587F-49F1-D5A4-6E86-F79FE6BC5ABB";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" 404.76188867811226 -8012.0338684686785 ;
-	setAttr ".tgi[0].vh" -type "double2" 1805.9523091902836 -7093.9179122271089 ;
+	setAttr ".tgi[0].vl" -type "double2" 404.7618886781126 -8268.9140445115609 ;
+	setAttr ".tgi[0].vh" -type "double2" 1807.1427853334549 -6838.2282123273962 ;
 	setAttr -s 3 ".tgi[0].ni";
 	setAttr ".tgi[0].ni[0].x" 868.5714111328125;
-	setAttr ".tgi[0].ni[0].y" -7474.28564453125;
+	setAttr ".tgi[0].ni[0].y" -7678.5712890625;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
 	setAttr ".tgi[0].ni[1].x" 868.5714111328125;
-	setAttr ".tgi[0].ni[1].y" -7248.5712890625;
+	setAttr ".tgi[0].ni[1].y" -7474.28564453125;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
 	setAttr ".tgi[0].ni[2].x" 868.5714111328125;
-	setAttr ".tgi[0].ni[2].y" -7678.5712890625;
+	setAttr ".tgi[0].ni[2].y" -7248.5712890625;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
 select -ne :time1;
-	setAttr ".o" 200;
-	setAttr ".unw" 200;
+	setAttr ".o" 253;
+	setAttr ".unw" 253;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -28268,9 +28269,9 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
 connectAttr "Thomas_Turn_Head.o" "material_thomas_v1_0001RN.phl[41]";
-connectAttr "material_thomas_v1_0001RN.phl[42]" "thomas_wheel_rendercam_pointConstraint1.tg[0].tt"
+connectAttr "material_thomas_v1_0001RN.phl[42]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].tt"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[43]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].tt"
+connectAttr "material_thomas_v1_0001RN.phl[43]" "thomas_wheel_rendercam_pointConstraint1.tg[0].tt"
 		;
 connectAttr "material_thomas_v1_0001RN.phl[44]" "camera_aim_pivot_pointConstraint1.tg[0].tt"
 		;
@@ -28282,235 +28283,235 @@ connectAttr "Thomas_rotateX.o" "material_thomas_v1_0001RN.phl[48]";
 connectAttr "Thomas_rotateZ.o" "material_thomas_v1_0001RN.phl[49]";
 connectAttr "material_thomas_v1_0001RN.phl[50]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].ts"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[51]" "thomas_wheel_rendercam_pointConstraint1.tg[0].trp"
+connectAttr "material_thomas_v1_0001RN.phl[51]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].trp"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[52]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].trp"
+connectAttr "material_thomas_v1_0001RN.phl[52]" "thomas_wheel_rendercam_pointConstraint1.tg[0].trp"
 		;
 connectAttr "material_thomas_v1_0001RN.phl[53]" "camera_aim_pivot_pointConstraint1.tg[0].trp"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[54]" "thomas_wheel_rendercam_pointConstraint1.tg[0].trt"
+connectAttr "material_thomas_v1_0001RN.phl[54]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].trt"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[55]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].trt"
+connectAttr "material_thomas_v1_0001RN.phl[55]" "thomas_wheel_rendercam_pointConstraint1.tg[0].trt"
 		;
 connectAttr "material_thomas_v1_0001RN.phl[56]" "camera_aim_pivot_pointConstraint1.tg[0].trt"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[57]" "thomas_wheel_rendercam_pointConstraint1.tg[0].tpm"
+connectAttr "material_thomas_v1_0001RN.phl[57]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].tpm"
 		;
-connectAttr "material_thomas_v1_0001RN.phl[58]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].tpm"
+connectAttr "material_thomas_v1_0001RN.phl[58]" "thomas_wheel_rendercam_pointConstraint1.tg[0].tpm"
 		;
 connectAttr "material_thomas_v1_0001RN.phl[59]" "camera_aim_pivot_pointConstraint1.tg[0].tpm"
 		;
 connectAttr "material_thomas_v1_0001RN.phl[60]" "thomas_front_rendercam_pivot_parentConstraint1.tg[0].tro"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[429]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[449]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[430]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[450]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[431]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[451]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[432]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[452]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[433]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[453]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[434]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[454]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[435]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[455]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[436]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[456]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[437]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[457]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[438]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[458]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[439]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[459]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[440]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[460]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[441]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[461]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[442]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[462]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[443]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[463]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[444]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[464]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[445]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[465]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[446]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[466]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[447]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[467]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[448]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[468]"
 		;
-connectAttr "track_longRN.phl[607]" "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0].gco"
+connectAttr "track_longRN.phl[661]" "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0].gco"
 		;
-connectAttr "track_longRN.phl[608]" "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0].gco"
+connectAttr "track_longRN.phl[662]" "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0].gco"
 		;
-connectAttr "track_longRN.phl[609]" "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0].gco"
+connectAttr "track_longRN.phl[663]" "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0].gco"
 		;
-connectAttr "groupId23.msg" "track_longRN.phl[610]";
-connectAttr "groupId24.msg" "track_longRN.phl[611]";
-connectAttr "groupId25.msg" "track_longRN.phl[612]";
-connectAttr "groupId23.msg" "track_longRN.phl[613]";
-connectAttr "groupId24.msg" "track_longRN.phl[614]";
-connectAttr "groupId25.msg" "track_longRN.phl[615]";
-connectAttr "groupId23.msg" "track_longRN.phl[616]";
-connectAttr "groupId24.msg" "track_longRN.phl[617]";
-connectAttr "groupId25.msg" "track_longRN.phl[618]";
-connectAttr "groupId23.msg" "track_longRN.phl[619]";
-connectAttr "groupId24.msg" "track_longRN.phl[620]";
-connectAttr "groupId25.msg" "track_longRN.phl[621]";
-connectAttr "groupId23.msg" "track_longRN.phl[622]";
-connectAttr "groupId24.msg" "track_longRN.phl[623]";
-connectAttr "groupId25.msg" "track_longRN.phl[624]";
-connectAttr "groupId23.msg" "track_longRN.phl[625]";
-connectAttr "groupId24.msg" "track_longRN.phl[626]";
-connectAttr "groupId25.msg" "track_longRN.phl[627]";
-connectAttr "groupId23.msg" "track_longRN.phl[628]";
-connectAttr "groupId24.msg" "track_longRN.phl[629]";
-connectAttr "groupId25.msg" "track_longRN.phl[630]";
-connectAttr "groupId23.msg" "track_longRN.phl[631]";
-connectAttr "groupId24.msg" "track_longRN.phl[632]";
-connectAttr "groupId25.msg" "track_longRN.phl[633]";
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[634]"
+connectAttr "groupId23.msg" "track_longRN.phl[664]";
+connectAttr "groupId24.msg" "track_longRN.phl[665]";
+connectAttr "groupId25.msg" "track_longRN.phl[666]";
+connectAttr "groupId23.msg" "track_longRN.phl[667]";
+connectAttr "groupId24.msg" "track_longRN.phl[668]";
+connectAttr "groupId25.msg" "track_longRN.phl[669]";
+connectAttr "groupId23.msg" "track_longRN.phl[670]";
+connectAttr "groupId24.msg" "track_longRN.phl[671]";
+connectAttr "groupId25.msg" "track_longRN.phl[672]";
+connectAttr "groupId23.msg" "track_longRN.phl[673]";
+connectAttr "groupId24.msg" "track_longRN.phl[674]";
+connectAttr "groupId25.msg" "track_longRN.phl[675]";
+connectAttr "groupId23.msg" "track_longRN.phl[676]";
+connectAttr "groupId24.msg" "track_longRN.phl[677]";
+connectAttr "groupId25.msg" "track_longRN.phl[678]";
+connectAttr "groupId23.msg" "track_longRN.phl[679]";
+connectAttr "groupId24.msg" "track_longRN.phl[680]";
+connectAttr "groupId25.msg" "track_longRN.phl[681]";
+connectAttr "groupId23.msg" "track_longRN.phl[682]";
+connectAttr "groupId24.msg" "track_longRN.phl[683]";
+connectAttr "groupId25.msg" "track_longRN.phl[684]";
+connectAttr "groupId23.msg" "track_longRN.phl[685]";
+connectAttr "groupId24.msg" "track_longRN.phl[686]";
+connectAttr "groupId25.msg" "track_longRN.phl[687]";
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[688]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[635]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[689]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[636]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[690]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[637]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[691]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[638]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[692]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[639]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[693]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[640]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[694]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[641]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[695]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[642]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[696]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[643]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[697]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[644]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[698]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[645]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[699]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[646]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[700]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[647]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[701]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[648]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[702]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[649]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[703]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[650]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[704]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[651]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[705]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[652]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[706]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[653]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[707]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[654]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[708]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[655]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[709]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[656]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[710]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[657]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog.og[0]" "track_longRN.phl[711]"
 		;
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[658]"
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[712]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[659]"
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[713]"
 		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[660]"
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[714]"
 		;
-connectAttr "|Dresser|Handles|Handle3|Cylinder|CylinderShape.iog" "bedRN.phl[139]"
+connectAttr "|Dresser|Handles|Handle3|Cylinder|CylinderShape.iog" "bedRN.phl[145]"
 		;
-connectAttr "|Dresser|Handles|Handle3|Grip|GripShape.iog" "bedRN.phl[140]";
-connectAttr "|Dresser|Handles|Handle2|Cylinder|CylinderShape.iog" "bedRN.phl[141]"
+connectAttr "|Dresser|Handles|Handle3|Grip|GripShape.iog" "bedRN.phl[146]";
+connectAttr "|Dresser|Handles|Handle2|Cylinder|CylinderShape.iog" "bedRN.phl[147]"
 		;
-connectAttr "|Dresser|Handles|Handle2|Grip|GripShape.iog" "bedRN.phl[142]";
-connectAttr "|Dresser|Handles|Handle1|Cylinder|CylinderShape.iog" "bedRN.phl[143]"
+connectAttr "|Dresser|Handles|Handle2|Grip|GripShape.iog" "bedRN.phl[148]";
+connectAttr "|Dresser|Handles|Handle1|Cylinder|CylinderShape.iog" "bedRN.phl[149]"
 		;
-connectAttr "|Dresser|Handles|Handle1|Grip|GripShape.iog" "bedRN.phl[144]";
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[185]"
+connectAttr "|Dresser|Handles|Handle1|Grip|GripShape.iog" "bedRN.phl[150]";
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[193]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[186]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[194]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[187]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[195]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[188]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[196]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[189]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[197]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[190]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[198]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[191]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[199]"
 		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[192]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[200]"
 		;
-connectAttr "Diesel_Turn_Head.o" "diesel_v2RN.phl[542]";
-connectAttr "Diesel_translateZ.o" "diesel_v2RN.phl[543]";
-connectAttr ":initialShadingGroup.mwc" "diesel_v2RN.phl[544]";
-connectAttr "Barricade_BaseShape.iog" "diesel_v2RN.phl[545]";
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[546]"
+connectAttr "Diesel_Turn_Head.o" "diesel_v2RN.phl[569]";
+connectAttr "Diesel_translateZ.o" "diesel_v2RN.phl[570]";
+connectAttr ":initialShadingGroup.mwc" "diesel_v2RN.phl[571]";
+connectAttr "Barricade_BaseShape.iog" "diesel_v2RN.phl[572]";
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[573]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[547]"
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[574]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[548]"
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[575]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[549]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[576]"
 		;
-connectAttr "Barricade_PivotShape.iog" "diesel_v2RN.phl[550]";
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[551]"
+connectAttr "Barricade_PivotShape.iog" "diesel_v2RN.phl[577]";
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[578]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[552]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[579]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[553]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[580]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[554]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[581]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[555]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[582]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[556]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[583]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[557]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[584]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[558]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[585]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[559]"
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[586]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[560]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[587]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[561]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[588]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[562]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[589]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[563]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[590]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[564]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[591]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[565]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[592]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[566]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[593]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[567]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[594]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[568]"
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[595]"
 		;
-connectAttr ":defaultColorMgtGlobals.cme" "diesel_v2RN.phl[569]";
-connectAttr ":defaultColorMgtGlobals.cfe" "diesel_v2RN.phl[570]";
-connectAttr ":defaultColorMgtGlobals.cfp" "diesel_v2RN.phl[571]";
-connectAttr ":defaultColorMgtGlobals.wsn" "diesel_v2RN.phl[572]";
-connectAttr ":defaultColorMgtGlobals.cme" "diesel_v2RN.phl[573]";
-connectAttr ":defaultColorMgtGlobals.cfe" "diesel_v2RN.phl[574]";
-connectAttr ":defaultColorMgtGlobals.cfp" "diesel_v2RN.phl[575]";
-connectAttr ":defaultColorMgtGlobals.wsn" "diesel_v2RN.phl[576]";
-connectAttr "diesel_v2RN.phl[577]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
+connectAttr ":defaultColorMgtGlobals.cme" "diesel_v2RN.phl[596]";
+connectAttr ":defaultColorMgtGlobals.cfe" "diesel_v2RN.phl[597]";
+connectAttr ":defaultColorMgtGlobals.cfp" "diesel_v2RN.phl[598]";
+connectAttr ":defaultColorMgtGlobals.wsn" "diesel_v2RN.phl[599]";
+connectAttr ":defaultColorMgtGlobals.cme" "diesel_v2RN.phl[600]";
+connectAttr ":defaultColorMgtGlobals.cfe" "diesel_v2RN.phl[601]";
+connectAttr ":defaultColorMgtGlobals.cfp" "diesel_v2RN.phl[602]";
+connectAttr ":defaultColorMgtGlobals.wsn" "diesel_v2RN.phl[603]";
+connectAttr "diesel_v2RN.phl[604]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "diesel_v2RN.phl[578]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "diesel_v2RN.phl[605]" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
 connectAttr ":defaultColorMgtGlobals.cme" "Thomas_FrontShape.cme";
 connectAttr ":defaultColorMgtGlobals.cfe" "Thomas_FrontShape.cmcf";
@@ -28653,18 +28654,6 @@ connectAttr "place2dTexture1.vt3" "file1.vt3";
 connectAttr "place2dTexture1.vc1" "file1.vc1";
 connectAttr "place2dTexture1.o" "file1.uv";
 connectAttr "place2dTexture1.ofs" "file1.fs";
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[369]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[370]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[371]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[372]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[373]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[374]"
-		;
 connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[389]"
 		;
 connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[390]"
@@ -28676,34 +28665,6 @@ connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short2|Tra
 connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[393]"
 		;
 connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[394]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[395]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[396]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[397]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[398]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[399]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[400]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[401]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[402]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[403]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[404]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[405]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[406]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[407]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[408]"
 		;
 connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[409]"
 		;
@@ -28744,6 +28705,46 @@ connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short5|Trac
 connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[427]"
 		;
 connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[428]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[429]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[430]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[431]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[432]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[433]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[434]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[435]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[436]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[437]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[438]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[439]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[440]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short3|Track_Short3Shape.iog" "track_decorativeRN2.phl[441]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Right|Track_Short6|Track_Short6Shape.iog" "track_decorativeRN2.phl[442]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short1|Track_Short1Shape.iog" "track_decorativeRN2.phl[443]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short2|Track_Short2Shape.iog" "track_decorativeRN2.phl[444]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short4|Track_Short4Shape.iog" "track_decorativeRN2.phl[445]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Track_Left|Track_Short5|Track_Short5Shape.iog" "track_decorativeRN2.phl[446]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Left|Track_LeftShape.iog" "track_decorativeRN2.phl[447]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Track_Right|Track_RightShape.iog" "track_decorativeRN2.phl[448]"
 		;
 connectAttr "file2.oc" "Barricade_Bar_Mat.c";
 connectAttr "file2.ot" "Barricade_Bar_Mat.it";
@@ -28884,12 +28885,6 @@ connectAttr "place2dTexture8.vt3" "file5.vt3";
 connectAttr "place2dTexture8.vc1" "file5.vc1";
 connectAttr "place2dTexture8.o" "file5.uv";
 connectAttr "place2dTexture8.ofs" "file5.fs";
-connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[544]"
-		;
-connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[545]"
-		;
-connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[546]"
-		;
 connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[574]"
 		;
 connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[575]"
@@ -28902,16 +28897,13 @@ connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLo
 		;
 connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[606]"
 		;
+connectAttr "|Environment|Zone_A|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[658]"
+		;
+connectAttr "|Environment|Zone_B|Track|Track_Right|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[659]"
+		;
+connectAttr "|Environment|Zone_B|Track|Track_Left|track_extraLong|track_extraLongShape.iog" "track_longRN.phl[660]"
+		;
 connectAttr "sharedReferenceNode.sr" "track_longRN.sr";
-connectAttr "|Dresser|Handles|Handle3|Cylinder|CylinderShape.iog" "bedRN.phl[121]"
-		;
-connectAttr "|Dresser|Handles|Handle3|Grip|GripShape.iog" "bedRN.phl[122]";
-connectAttr "|Dresser|Handles|Handle2|Cylinder|CylinderShape.iog" "bedRN.phl[123]"
-		;
-connectAttr "|Dresser|Handles|Handle2|Grip|GripShape.iog" "bedRN.phl[124]";
-connectAttr "|Dresser|Handles|Handle1|Cylinder|CylinderShape.iog" "bedRN.phl[125]"
-		;
-connectAttr "|Dresser|Handles|Handle1|Grip|GripShape.iog" "bedRN.phl[126]";
 connectAttr "|Dresser|Handles|Handle3|Cylinder|CylinderShape.iog" "bedRN.phl[127]"
 		;
 connectAttr "|Dresser|Handles|Handle3|Grip|GripShape.iog" "bedRN.phl[128]";
@@ -28930,6 +28922,15 @@ connectAttr "|Dresser|Handles|Handle2|Grip|GripShape.iog" "bedRN.phl[136]";
 connectAttr "|Dresser|Handles|Handle1|Cylinder|CylinderShape.iog" "bedRN.phl[137]"
 		;
 connectAttr "|Dresser|Handles|Handle1|Grip|GripShape.iog" "bedRN.phl[138]";
+connectAttr "|Dresser|Handles|Handle3|Cylinder|CylinderShape.iog" "bedRN.phl[139]"
+		;
+connectAttr "|Dresser|Handles|Handle3|Grip|GripShape.iog" "bedRN.phl[140]";
+connectAttr "|Dresser|Handles|Handle2|Cylinder|CylinderShape.iog" "bedRN.phl[141]"
+		;
+connectAttr "|Dresser|Handles|Handle2|Grip|GripShape.iog" "bedRN.phl[142]";
+connectAttr "|Dresser|Handles|Handle1|Cylinder|CylinderShape.iog" "bedRN.phl[143]"
+		;
+connectAttr "|Dresser|Handles|Handle1|Grip|GripShape.iog" "bedRN.phl[144]";
 connectAttr "file8.oc" "Carpet_Mat.c";
 connectAttr "bump2d2.o" "Carpet_Mat.n";
 connectAttr "Carpet_Mat.oc" "blinn7SG.ss";
@@ -29094,22 +29095,6 @@ connectAttr "place2dTexture17.vt3" "file13.vt3";
 connectAttr "place2dTexture17.vc1" "file13.vc1";
 connectAttr "place2dTexture17.o" "file13.uv";
 connectAttr "place2dTexture17.ofs" "file13.fs";
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[161]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[162]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[163]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[164]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[165]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[166]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[167]"
-		;
-connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[168]"
-		;
 connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[169]"
 		;
 connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[170]"
@@ -29142,51 +29127,21 @@ connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_
 		;
 connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[184]"
 		;
-connectAttr "Barricade_BaseShape.iog" "diesel_v2RN.phl[481]";
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[482]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[185]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[483]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[186]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[484]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[187]"
 		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[485]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet1|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[188]"
 		;
-connectAttr "Barricade_PivotShape.iog" "diesel_v2RN.phl[486]";
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[487]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Outer_Frame|Outer_FrameShape.iog" "power_outletRN.phl[189]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[488]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Frame|Center_Frame|Center_FrameShape.iog" "power_outletRN.phl[190]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[489]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Bot|Screw_BotShape.iog" "power_outletRN.phl[191]"
 		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[490]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[491]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[492]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[493]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[494]"
-		;
-connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[495]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[496]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[497]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[498]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[499]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[500]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[501]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[502]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[503]"
-		;
-connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[504]"
+connectAttr "|Environment|Power_Outlets|Power_Outlet2|Power_Outlet|Screws|Screw_Top|Screw_TopShape.iog" "power_outletRN.phl[192]"
 		;
 connectAttr "Barricade_BaseShape.iog" "diesel_v2RN.phl[518]";
 connectAttr "|Environment|Bridge|Bridge_1|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[519]"
@@ -29234,10 +29189,56 @@ connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCub
 		;
 connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[541]"
 		;
+connectAttr "Barricade_BaseShape.iog" "diesel_v2RN.phl[545]";
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[546]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[547]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Ramp|Ramp_Base|Ramp_BaseShape.iog" "diesel_v2RN.phl[548]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Base|BaseShape.iog" "diesel_v2RN.phl[549]"
+		;
+connectAttr "Barricade_PivotShape.iog" "diesel_v2RN.phl[550]";
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[551]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[552]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[553]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[554]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[555]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[556]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[557]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[558]"
+		;
+connectAttr "|Environment|Bridge|Bridge_1|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[559]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[560]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_2|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[561]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube1|pCubeShape1.iog" "diesel_v2RN.phl[562]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Cross_Struct_1|pCube2|pCubeShape2.iog" "diesel_v2RN.phl[563]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube5|pCubeShape5.iog" "diesel_v2RN.phl[564]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube4|pCubeShape4.iog" "diesel_v2RN.phl[565]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Horizontal_Rails|pCube3|pCubeShape3.iog" "diesel_v2RN.phl[566]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube6|pCubeShape6.iog" "diesel_v2RN.phl[567]"
+		;
+connectAttr "|Environment|Bridge|Bridge_2|Bridge|Under_Rails|Vertical_Rails|pCube7|pCubeShape7.iog" "diesel_v2RN.phl[568]"
+		;
 connectAttr "sharedReferenceNode.sr" "diesel_v2RN.sr";
 connectAttr "Drawbridge_1.out[0]" "unitConversion1.i";
 connectAttr "Drawbridge_1.out[1]" "unitConversion2.i";
-connectAttr ":initialShadingGroup.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
+connectAttr ":initialShadingGroup.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
 connectAttr "blinn1SG.pa" ":renderPartition.st" -na;
 connectAttr "blinn2SG.pa" ":renderPartition.st" -na;
@@ -29301,4 +29302,4 @@ connectAttr "areaLight1.iog" ":defaultLightSet.dsm" -na;
 connectAttr "areaLight2.iog" ":defaultLightSet.dsm" -na;
 connectAttr "areaLight3.iog" ":defaultLightSet.dsm" -na;
 connectAttr "Sky_Dome_Light1.iog" ":defaultLightSet.dsm" -na;
-// End of v48_shot7_v1.000.ma
+// End of v48_shot8_diesel-face-flip.0000.ma
