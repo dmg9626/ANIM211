@@ -15,12 +15,10 @@ Num. |Frames|  Frames | Frames  |  Camera       | Scene Name     | Description  
   11 |   24 | 144-157 | 579-602 |  shot_3       | GEARS Scene   | Gears turning (closer/fast)       |   Finished   | Finished
   12 |   18 | 436-453 | 603-620 |  rendercam    | Bedroom Scene | Under Bridge shot 2               |   Finished   | Finished
   13 |   18 | 436-453 | 621-638 |  thomas_wheels| Bedroom Scene | thomas wheels shot                |   Finished   | Finished
-  
-UPDATE VIDEO FRAMES BELOW
-  14 |   16 | 454-469 | 639-656 |  rendercam    | Bedroom Scene | Far shot of bridge 2              |   Finished   | Missing ~30 frames (or is it?)
+  14 |   16 | 454-469 | 639-654 |  rendercam    | Bedroom Scene | Far shot of bridge 2              |   Finished   | Missing ~30 frames (or is it?)
   15 |   12?|         | ------- |               |    ???????    | Blinking Traffic Light            |   eh fuck it | whatever
-  16 |   12 | 472-486 | 657-668 |  thomas_front | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Missing Frames!!
-  17 |   30 | 498-527 | 669-698 |  rendercam    | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
-  18 |   40 | 528-568 | 699-738 |  rendercam    | Bedroom Scene | thomas jump!                      |   Finished   | Finished
-  19 |   12 | 569-592 | 739-750 |  rendercam    | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
-  20 |   42 | 593-641 | 751-798 |  aim-camera   | Bedroom Scene | thomas go!!! (pan view)           |   Finished   | Finished
+  16 |   12 | 472-486 | 655-666 |  thomas_front | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Missing Frames!!
+  17 |   30 | 498-527 | 667-696 |  rendercam    | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
+  18 |   40 | 528-568 | 697-736 |  rendercam    | Bedroom Scene | thomas jump!                      |   Finished   | Finished
+  19 |   12 | 569-592 | 737-748 |  rendercam    | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
+  20 |   42 | 593-641 | 749-790 |  aim-camera   | Bedroom Scene | thomas go!!! (pan view)           |   Finished   | Finished
