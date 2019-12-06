@@ -17,8 +17,8 @@ Num. |Frames|  Frames | Frames  |  Camera       | Scene Name     | Description  
   13 |   18 | 436-453 | 621-638 |  thomas_wheels| Bedroom Scene | thomas wheels shot                |   Finished   | Finished
   14 |   16 | 454-469 | 639-654 |  rendercam    | Bedroom Scene | Far shot of bridge 2              |   Finished   | Missing ~30 frames (or is it?)
   15 |   12?|         | ------- |               |    ???????    | Blinking Traffic Light            |   eh fuck it | whatever
-  16 |   12 | 472-486 | 655-666 |  thomas_front | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Missing Frames!!
-  17 |   30 | 498-527 | 667-696 |  rendercam    | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
-  18 |   40 | 528-568 | 697-736 |  rendercam    | Bedroom Scene | thomas jump!                      |   Finished   | Finished
-  19 |   12 | 569-592 | 737-748 |  rendercam    | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
-  20 |   42 | 593-641 | 749-790 |  aim-camera   | Bedroom Scene | thomas go!!! (pan view)           |   Finished   | Finished
+  16 |   15 | 472-486 | 655-669 |  thomas_front | Bedroom Scene | Thom. ascends bridge (FPS view)   |   Finished   | Missing Frames!!
+  17 |   30 | 498-527 | 670-699 |  rendercam    | Bedroom Scene | Thom. ascends bridge (side view)  |   Finished   | Finished
+  18 |   41 | 528-568 | 700-740 |  rendercam    | Bedroom Scene | thomas jump!                      |   Finished   | Finished
+  19 |   24 | 569-592 | 741-764 |  rendercam    | Bedroom Scene | thomas land! (over camera)        |   Finished   | Finished
+  20 |   49 | 593-641 | 765-813 |  aim-camera   | Bedroom Scene | thomas go!!! (pan view)           |   Finished   | Finished
