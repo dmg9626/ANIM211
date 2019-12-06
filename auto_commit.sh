@@ -7,8 +7,9 @@ while true; do
 
         # pull before attempting to commit anything (in case running on multiple computers)
         git pull >> $log_file
-        # add all to index
-        git add . >> $log_file
+
+        # add all image/video/scene changes to index
+        git add *.png *.mp4 *.ma *.mb >> $log_file
 
         # commit with timestamp log
         commit_log=`date`
