@@ -9,7 +9,7 @@ while true; do
         git pull >> $log_file
 
         # add all image/video/scene changes to index
-        git add *.png *.mp4 *.ma *.mb >> $log_file
+        git add *.png *.mp4 *.ma >> $log_file
 
         # commit with timestamp log
         commit_log=`date`
