@@ -10,6 +10,7 @@ if len(sys.argv) < 3:
 
 # get directory and start count
 directory = sys.argv[1]
+start_count = (int)(sys.argv[2])
 
 # move to directory
 os.chdir(directory)
@@ -21,11 +22,18 @@ files = os.listdir()
 
 # filter out other files, sort by increasing
 files = [f for f in files if prefix in f]
-files.sort()
 print("Renaming {} files...".format(len(files)))
 
+# go in reverse if 4th arg "-r" given
+step = 1
+if len(sys.argv) == 4 and sys.argv[3] == "-r":
+    files.sort(reverse=True)
+    step = -1
+    print("renaming in reverse from: {}".format(start_count))
+else:
+    files.sort()
+
 # rename each file recursively
-start_count = (int)(sys.argv[2])
 inc = 0
 for f in files:
     # get frame number (padded with 4 zeroes)
@@ -39,4 +47,4 @@ for f in files:
     os.rename(f, filename)
 
     # increment & repeat
-    inc += 1
+    inc += step
